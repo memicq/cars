@@ -3,6 +3,10 @@ plugins {
     id "com.github.node-gradle.node" version "1.3.0"
 }
 
+node {
+    download = true
+}
+
 clean.delete "dist"
 task npmBuild(type: NpmTask) {
     args = ["run", "build"]

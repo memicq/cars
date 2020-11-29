@@ -40,6 +40,10 @@ dependencies {
 	compileOnly("org.projectlombok:lombok:${lombokVersion}")
 }
 
+bootRun {
+	jvmArgs = ['-Dspring.profiles.active=development']
+}
+
 clean.delete fileTree("src/main/resources/static").include("**/*")
 task copyDistToStatic(type: Copy) {
 	from project(":carweb").file("dist")

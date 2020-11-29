@@ -23,7 +23,7 @@ export default {
   methods: {
     callSampleWebapi: async function() {
       try {
-        const response = await axios.post("/api");
+        const response = await axios.get("/api");
         this.$set(this, "code", response.data.code);
         this.$set(this, "value", response.data.value);
       } catch (err) {

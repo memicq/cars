@@ -1,3 +1,4 @@
+// NOTE: ファイルの設定は、
 module.exports = {
   "transpileDependencies": [
     "vuetify"
@@ -5,8 +6,8 @@ module.exports = {
   devServer: {
     proxy: {
       "^/api": {
-        target: "http://localhost:8081",
-        changeOrigin: true
+        target: "http://carapi:8081",
+//        changeOrigin: true
       }
     }
   }
