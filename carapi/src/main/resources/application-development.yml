@@ -4,5 +4,9 @@ spring:
     url: "jdbc:mysql://database/cars_db"
     username: "user"
     password: "password"
+  jpa:
+    database: MYSQL
+    hibernate:
+      ddl-auto: update
 server:
   port: 8081

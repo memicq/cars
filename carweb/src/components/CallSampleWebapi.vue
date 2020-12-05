@@ -4,7 +4,7 @@
       <v-flex xs12>
         <div>code: {{ code }}</div>
         <div>value: {{ value }}</div>
-        <v-btn color="info" v-on:click="callSampleWebapi">クリック！</v-btn>
+        <v-btn color="info" v-on:click="callSampleWebapi">クリックす！</v-btn>
       </v-flex>
     </v-layout>
   </v-container>

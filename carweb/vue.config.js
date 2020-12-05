@@ -1,4 +1,4 @@
-// NOTE: ファイルの設定は、
+// NOTE: ファイルの設定は、変更すべき
 module.exports = {
   "transpileDependencies": [
     "vuetify"
