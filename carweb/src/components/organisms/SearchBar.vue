@@ -4,9 +4,9 @@
       <v-row>
         <v-col class="input-box">
           <v-chip-group>
-						<v-chip v-for="tag in searchTags" :key="tag" close>
-						{{ tag }}
-						</v-chip>
+            <v-chip v-for="tag in searchTags" :key="tag" close>
+              {{ tag }}
+            </v-chip>
           </v-chip-group>
         </v-col>
         <v-col cols="auto" align-self="end">
@@ -18,10 +18,7 @@
 
       <v-row>
         <v-chip-group column>
-          <v-chip
-						v-for="tag in tags"
-						:key="tag"
-					>{{ tag }}</v-chip>
+          <v-chip v-for="tag in tags" :key="tag">{{ tag }}</v-chip>
         </v-chip-group>
       </v-row>
     </v-container>
@@ -30,12 +27,14 @@
 
 <script>
 export default {
-	data: function() {
-		return {
-      tags: Array(100).fill().map((_, v) => "タグ" + v),
+  data: function() {
+    return {
+      tags: Array(100)
+        .fill()
+        .map((_, v) => "タグ" + v),
       searchTags: []
-		}
-	}
+    };
+  }
 };
 </script>
 

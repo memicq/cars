@@ -1,13 +1,17 @@
 <template>
   <div>
     <v-app-bar color="white" id="global-header">
-      <v-toolbar-title>DeadOrPorn</v-toolbar-title>
+      <router-link to="/">
+        <v-toolbar-title>DeadOrPorn</v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
       <v-btn icon @click="expandSearchBar = !expandSearchBar">
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
       <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
+        <v-badge content="2" value="2" color="red darken-4" overlap>
+          <v-icon>mdi-heart</v-icon>
+        </v-badge>
       </v-btn>
       <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
