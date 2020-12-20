@@ -1,8 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import IndexPage from "../components/pages/IndexPage.vue";
-import AdminPage from "../components/pages/AdminPage.vue";
 import DetailPage from "../components/pages/DetailPage.vue";
+import AdminMoviesPage from "../components/pages/AdminMoviesPage.vue";
+import AdminTagsPage from "../components/pages/AdminTagsPage.vue";
+import AdminReportPage from "../components/pages/AdminReportPage.vue";
 
 Vue.use(VueRouter);
 
@@ -18,9 +20,23 @@ const routes = [
     component: DetailPage
   },
   {
-    path: "/admin",
-    name: "Admin",
-    component: AdminPage
+    path: "/admin/movies",
+    name: "AdminMoviesPage",
+    component: AdminMoviesPage
+  },
+  {
+    path: "/admin/tags",
+    name: "AdminTagsPage",
+    component: AdminTagsPage
+  },
+  {
+    path: "/admin/report",
+    name: "AdminReportPage",
+    component: AdminReportPage
+  },
+  {
+    path: "/admin*",
+    redirect: "/admin/movies"
   }
 ];
 

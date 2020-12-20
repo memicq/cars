@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <v-content>
-      <global-header />
+      <global-header v-show="!isAdmin" />
       <router-view />
-      <global-footer />
+      <global-footer v-show="!isAdmin" />
     </v-content>
   </v-app>
 </template>
@@ -16,6 +16,26 @@ export default {
   components: {
     GlobalFooter,
     GlobalHeader
+  },
+  data: function () {
+    return {
+      // constants
+      ADMIN_PREFIX: "/admin",
+
+      // flags
+      isAdmin: false,
+    }
+  },
+  created: function() {
+    this.updateRoute();
+  },
+  watch: {
+    $route: "updateRoute"
+  },
+  methods: {
+    updateRoute() { 
+       this.isAdmin = this.$route.path.startsWith(this.ADMIN_PREFIX);
+    }
   }
 };
 </script>
