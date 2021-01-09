@@ -30,6 +30,9 @@ public class Article {
     @Column(name = "source_url", nullable = false, length =  2047)
     private String sourceUrl;
 
+    @Column(name = "embedded_url", nullable = false, length = 2047)
+    private String embeddedUrl;
+
     @Column(name = "source_site", nullable = false, length = 31)
     @Enumerated(EnumType.STRING)
     private SourceMovieSite sourceSite;
@@ -53,5 +56,5 @@ public class Article {
     private LocalTime updatedAt;
 
     @Column(name = "updated_by", nullable = false)
-    private LocalTime updatedBy;
+    private Long updatedBy;
 }
