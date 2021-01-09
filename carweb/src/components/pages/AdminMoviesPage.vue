@@ -11,10 +11,7 @@
 
       <v-container>
         <div class="text-center">
-          <v-pagination
-            v-model="page"
-            :length="6"
-          ></v-pagination>
+          <v-pagination v-model="page" :length="6"></v-pagination>
         </div>
       </v-container>
     </template>
@@ -22,15 +19,14 @@
 </template>
 
 <script>
-import AdminMovieList from '../organisms/AdminMovieList.vue';
-import MovieAdditionForm from '../organisms/MovieAdditionForm.vue';
-import AdminPageLayout from '../templates/AdminPageLayout.vue';
+import AdminMovieList from "../organisms/AdminMovieList.vue";
+import MovieAdditionForm from "../organisms/MovieAdditionForm.vue";
+import AdminPageLayout from "../templates/AdminPageLayout.vue";
 
 export default {
   components: { AdminPageLayout, MovieAdditionForm, AdminMovieList },
   data: function() {
-    return {
-    }
+    return {};
   }
 };
 </script>

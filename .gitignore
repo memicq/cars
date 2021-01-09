@@ -6,3 +6,6 @@ build
 
 .idea
 
+# api
+carapi/bin
+

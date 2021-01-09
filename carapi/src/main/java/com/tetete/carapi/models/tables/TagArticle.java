@@ -15,21 +15,18 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Table(name = "tags_articles")
 public class TagArticle {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "tags_articles_id", nullable = false)
+    private Long tagsArticlesId;
 
-    @ManyToOne
-    @JoinColumn(name = "tag_id", referencedColumnName = "id")
-    private Tag tag;
+    @Column(name = "tag_id", nullable = false)
+    private Long tagId;
 
-    @ManyToOne
-    @JoinColumn(name = "article_id", referencedColumnName = "id")
-    private Article article;
+    @Column(name = "article_id", nullable = false)
+    private Long articleId;
 
-    @CreatedDate
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @LastModifiedDate
+    @Column(name = "updated_at", nullable = false)
     private LocalTime updatedAt;
 }

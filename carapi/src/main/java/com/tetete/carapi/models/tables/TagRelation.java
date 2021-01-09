@@ -16,23 +16,18 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name = "tag_relations")
 public class TagRelation {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "tag_relation_id", nullable = false)
+    private Long tagRelationId;
 
-    @CreatedDate
-    @Column(nullable = false)
+    @Column(name = "parent_tag_id", nullable = false)
+    private Long parentTagId;
+
+    @Column(name = "child_tag_id", nullable = false)
+    private Long childTagId;
+
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @LastModifiedDate
-    @Column(nullable = false)
-    private Date updatedAt;
-
-    @OneToOne
-    @JoinColumn(name = "parent_tag_id", referencedColumnName = "id")
-    private Tag parentTag;
-
-    @OneToOne
-    @JoinColumn(name = "child_tag_id", referencedColumnName = "id")
-    private Tag childTag;
+    @Column(name = "updated_at", nullable = false)
+    private LocalTime updatedAt;
 }

@@ -17,34 +17,28 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "tags")
 public class Tag {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "tag_id", nullable = false)
+    private Long tagId;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(nullable = false, length = 4)
+    @Column(name = "node_type", nullable = false, length = 4)
     @Enumerated(EnumType.STRING)
     private TagNodeType nodeType;
 
-    @Column(nullable = false)
-    @CreatedDate
+    @Column(name = "sort_no", nullable = false)
+    private int sortNo;
+
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @Column(nullable = false)
-    @LastModifiedDate
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
+
+    @Column(name = "updated_at", nullable = false)
     private LocalTime updatedAt;
 
-    @OneToMany(mappedBy = "tag")
-    private List<TagArticle> tagArticles;
-
-    @OneToMany(mappedBy = "tag")
-    private List<TagSearchCondition> tagSearchConditions;
-
-    @OneToOne(mappedBy = "parentTag")
-    private TagRelation tagRelationAsParent;
-
-    @OneToOne(mappedBy = "childTag")
-    private TagRelation tagRelationAsChild;
+    @Column(name = "updated_by", nullable = false)
+    private Long updatedBy;
 }

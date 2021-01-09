@@ -15,27 +15,18 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Table(name = "comments")
 public class Comment {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "comment_id", nullable = false)
+    private Long commentId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "article_id", referencedColumnName = "id")
-    private Article article;
+    @Column(name = "article_id", nullable = false)
+    private Long articleId;
 
-    @CreatedDate
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @LastModifiedDate
-    private LocalTime updatedAt;
-
-    @OneToOne(mappedBy = "fromComment")
-    private CommentReply replyAsFromComment;
-
-    @OneToOne(mappedBy = "toComment")
-    private CommentReply replyAsToComment;
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
 }

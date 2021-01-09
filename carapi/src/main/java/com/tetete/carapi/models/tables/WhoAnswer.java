@@ -17,29 +17,24 @@ import java.util.Date;
 @AllArgsConstructor
 @Table(name = "who_answers")
 public class WhoAnswer {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "who_answer_id", nullable = false)
+    private Long whoAnswerId;
 
-    @Column(nullable = true, length = 255)
+    @Column(name = "name", nullable = true, length = 255)
     private String name;
 
-    @Column(nullable = false)
-    private long voteCount = 0;
+    @Column(name = "vote_count", nullable = false)
+    private Long voteCount = 0L;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "who_request_id", referencedColumnName = "id")
-    private WhoRequest whoRequest;
+    @Column(name = "who_request_id", nullable = false)
+    private Long whoRequestId;
 
-    @CreatedDate
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @CreatedBy
-    @Column(nullable = false)
-    private long createdBy;
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
 
-    @Column(nullable = false)
-    @LastModifiedDate
-    private Date updatedAt;
+    @Column(name = "updated_at", nullable = false)
+    private LocalTime updatedAt;
 }

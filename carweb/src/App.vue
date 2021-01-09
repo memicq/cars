@@ -17,14 +17,14 @@ export default {
     GlobalFooter,
     GlobalHeader
   },
-  data: function () {
+  data: function() {
     return {
       // constants
       ADMIN_PREFIX: "/admin",
 
       // flags
-      isAdmin: false,
-    }
+      isAdmin: false
+    };
   },
   created: function() {
     this.updateRoute();
@@ -33,8 +33,8 @@ export default {
     $route: "updateRoute"
   },
   methods: {
-    updateRoute() { 
-       this.isAdmin = this.$route.path.startsWith(this.ADMIN_PREFIX);
+    updateRoute() {
+      this.isAdmin = this.$route.path.startsWith(this.ADMIN_PREFIX);
     }
   }
 };

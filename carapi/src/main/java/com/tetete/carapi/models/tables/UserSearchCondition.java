@@ -15,23 +15,18 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Table(name = "users_search_conditions")
 public class UserSearchCondition {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "user_search_conditions_id", nullable = false)
+    private Long userSearchConditionsId;
+
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
+
+    @Column(name = "search_condition_id", nullable = false)
+    private Long searchConditionId;
 
     @Column(nullable = false)
-    @CreatedDate
     private LocalTime createdAt;
 
     @Column(nullable = false)
-    @LastModifiedDate
     private LocalTime updatedAt;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "search_condition_id", referencedColumnName = "id")
-    private SearchCondition searchCondition;
 }

@@ -1,24 +1,22 @@
 <template>
-	<v-list>
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-		<admin-movie-list-item />
-	</v-list>
+  <v-list>
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+    <admin-movie-list-item />
+  </v-list>
 </template>
 
 <script>
-import AdminMovieListItem from '../molecules/AdminMovieListItem.vue'
+import AdminMovieListItem from "../molecules/AdminMovieListItem.vue";
 export default {
-  components: { AdminMovieListItem },
-}
+  components: { AdminMovieListItem }
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <admin-header />
-    <v-sheet 
+    <v-sheet
       :height="windowHeight"
-      id="scrolling-techniques" 
+      id="scrolling-techniques"
       class="overflow-y-auto"
     >
       <v-sheet height="112"></v-sheet>
@@ -14,18 +14,16 @@
 </template>
 
 <script>
-import AdminFooter from '../organisms/AdminFooter.vue'
-import AdminHeader from '../organisms/AdminHeader.vue'
+import AdminFooter from "../organisms/AdminFooter.vue";
+import AdminHeader from "../organisms/AdminHeader.vue";
 export default {
   components: { AdminHeader, AdminFooter },
-  data: function () {
+  data: function() {
     return {
       windowHeight: window.innerHeight
-    }
-  },
-}
+    };
+  }
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

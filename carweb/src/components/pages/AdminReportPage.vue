@@ -1,5 +1,5 @@
 <template>
-	<admin-page-layout>
+  <admin-page-layout>
     <template slot="content">
       <v-container>
         <div>ReportPage</div>
@@ -9,11 +9,10 @@
 </template>
 
 <script>
-import AdminPageLayout from '../templates/AdminPageLayout.vue';
+import AdminPageLayout from "../templates/AdminPageLayout.vue";
 export default {
-  components: { AdminPageLayout },};
+  components: { AdminPageLayout }
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

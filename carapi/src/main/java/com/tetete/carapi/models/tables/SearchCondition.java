@@ -17,24 +17,21 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "search_conditions")
 public class SearchCondition {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "search_condition_id", nullable = false)
+    private Long searchConditionId;
 
-    @Column(nullable = true, length = 1023)
+    @Column(name = "description", nullable = true, length = 255)
     private String description;
 
-    @CreatedDate
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @LastModifiedDate
-    @Column(nullable = false)
-    private Date updatedAt;
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
 
-    @OneToMany(mappedBy = "searchCondition")
-    private List<TagSearchCondition> tagSearchConditions;
+    @Column(name = "updated_at", nullable = false)
+    private LocalTime updatedAt;
 
-    @OneToMany(mappedBy = "searchCondition")
-    private List<UserSearchCondition> userSearchConditions;
+    @Column(name = "updated_by", nullable = false)
+    private Long updatedBy;
 }

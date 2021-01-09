@@ -1,15 +1,11 @@
 <template>
-    <v-card>
-        お問い合わせフォーム
-    </v-card>
+  <v-card>
+    お問い合わせフォーム
+  </v-card>
 </template>
 
 <script>
-export default {
-    
-}
+export default {};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

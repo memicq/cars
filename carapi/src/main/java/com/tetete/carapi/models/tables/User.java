@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -16,36 +17,24 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "user_id", nullable = false)
+    private Long userId;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "display_name", nullable = false, length = 255)
     private String displayName;
 
-    @Column(nullable = true, length = 1023)
+    @Column(name = "description", nullable = true, length = 2047)
     private String description;
 
-    @Column(nullable = false, length = 255, unique = true)
-    private String username;
+    @Column(name="user_name", nullable = false, length = 255)
+    private String userName;
 
-    @Column(nullable = false, length = 64)
+    @Column(name = "encrypted_password", nullable = false, length = 63)
     private String encryptedPassword;
 
-    @Column(nullable = false)
-    @CreatedDate
-    private Date createdAt;
+    @Column(name = "created_at", nullable = false)
+    private LocalTime createdAt;
 
-    @Column(nullable = false)
-    @LastModifiedDate
-    private Date updatedAt;
-
-    @OneToMany(mappedBy = "user")
-    private List<Collection> collections;
-
-    @OneToMany(mappedBy = "user")
-    private List<Comment> comments;
-
-    @OneToMany(mappedBy = "user")
-    private List<UserSearchCondition> userSearchConditions;
+    @Column(name = "updated_at", nullable = false)
+    private LocalTime updatedAt;
 }

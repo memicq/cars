@@ -10,14 +10,14 @@
         <v-row align="center" justify="center">
           <v-tooltip bottom>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn 
+              <v-btn
                 dark
                 class="pink darken-1"
-                absolute 
-                top 
-                left 
-                fab 
-                v-bind="attrs" 
+                absolute
+                top
+                left
+                fab
+                v-bind="attrs"
                 v-on="on"
                 @click="showInquery = true"
               >
@@ -29,7 +29,6 @@
         </v-row>
       </v-container>
     </v-footer>
-    
   </div>
 </template>
 
@@ -37,8 +36,7 @@
 // import InqueryForm from './InqueryForm.vue';
 export default {
   // components: { InqueryForm },
-  data: function() {
-  }
+  data: function() {}
 };
 </script>
 

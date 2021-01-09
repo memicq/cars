@@ -5,6 +5,7 @@ import DetailPage from "../components/pages/DetailPage.vue";
 import AdminMoviesPage from "../components/pages/AdminMoviesPage.vue";
 import AdminTagsPage from "../components/pages/AdminTagsPage.vue";
 import AdminReportPage from "../components/pages/AdminReportPage.vue";
+import NotFoundPage from "../components/pages/NotFoundPage.vue";
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,11 @@ const routes = [
   {
     path: "/admin*",
     redirect: "/admin/movies"
+  },
+  {
+    path: "*",
+    name: "NotFoundPage",
+    component: NotFoundPage
   }
 ];
 

@@ -16,28 +16,24 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "collections")
 public class Collection {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "collection_id", nullable = false)
+    private Long collectionId;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "title", nullable = false, length = 255)
     private String title;
 
-    @Column(nullable = true, length = 1023)
+    @Column(name = "description", nullable = true, length = 2047)
     private String description;
 
-    @Column(nullable = false)
-    @CreatedDate
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @Column(nullable = false)
-    @LastModifiedDate
+    @Column(name = "created_by", nullable = false)
+    private LocalTime createdBy;
+
+    @Column(name = "updated_at", nullable = false)
     private LocalTime updatedAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
-    @OneToMany(mappedBy = "collection")
-    private List<CollectionArticle> collectionArticles;
+    @Column(name = "updated_by", nullable = false)
+    private LocalTime updatedBy;
 }

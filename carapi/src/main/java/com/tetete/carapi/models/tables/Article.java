@@ -18,47 +18,40 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "articles")
 public class Article {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "article_id", nullable = false)
+    private Long articleId;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "title", nullable = false, length = 511)
     private String title;
 
-    @Column(nullable = true, length = 1023)
+    @Column(name = "description", nullable = true, length = 1023)
     private String description;
 
-    @Column(nullable = false, length =  2047)
+    @Column(name = "source_url", nullable = false, length =  2047)
     private String sourceUrl;
 
-    @Column(nullable = false, length = 31)
+    @Column(name = "source_site", nullable = false, length = 31)
     @Enumerated(EnumType.STRING)
     private SourceMovieSite sourceSite;
 
-    @Column(nullable = false)
-    private long viewCount = 0;
+    @Column(name = "is_published", nullable = false)
+    private Boolean isPublished = false;
 
-    @Column(nullable = false)
+    @Column(name = "view_count", nullable = false)
+    private Long viewCount = 0L;
+
+    @Column(name = "is_archived", nullable = false)
     private boolean isArchived = false;
 
-    @Column(nullable = false)
-    @CreatedDate
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @Column(nullable = false)
-    @CreatedBy
-    private long createdBy;
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
 
-    @Column(nullable = false)
-    @LastModifiedDate
+    @Column(name = "updated_at", nullable = false)
     private LocalTime updatedAt;
 
-    @OneToMany(mappedBy = "article")
-    private List<CollectionArticle> collectionArticles;
-
-    @OneToMany(mappedBy = "article")
-    private List<TagArticle> tagArticles;
-
-    @OneToMany(mappedBy = "article")
-    private List<Comment> comments;
+    @Column(name = "updated_by", nullable = false)
+    private LocalTime updatedBy;
 }

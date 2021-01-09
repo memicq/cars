@@ -18,26 +18,15 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "who_requests")
 public class WhoRequest {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "who_request_id", nullable = false)
+    private Long whoRequestId;
 
-    @OneToOne
-    @JoinColumn(name = "article_id", referencedColumnName = "id")
-    private Article article;
+    @Column(name = "article_id", nullable = false)
+    private Long articleId;
 
-    @CreatedDate
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @CreatedBy
-    @Column(nullable = false)
-    private long createdBy;
-
-    @Column(nullable = false)
-    @LastModifiedDate
-    private Date updatedAt;
-
-    @OneToMany(mappedBy = "whoRequest")
-    private List<WhoAnswer> whoAnswers;
+    @Column(name = "updated_at", nullable = false)
+    private LocalTime updatedAt;
 }

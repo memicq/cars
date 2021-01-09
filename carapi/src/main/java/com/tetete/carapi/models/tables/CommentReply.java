@@ -16,21 +16,18 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Table(name = "comment_replies")
 public class CommentReply {
-    @Id
-    @GeneratedValue
-    private long id;
+    @Id @GeneratedValue @Column(name = "comment_reply_id", nullable = false)
+    private Long commentReplyId;
 
-    @CreatedDate
+    @Column(name = "replied_from_id", nullable = false)
+    private Long repliedFromId;
+
+    @Column(name = "replied_to_id", nullable = false)
+    private Long repliedToId;
+
+    @Column(name = "created_at", nullable = false)
     private LocalTime createdAt;
 
-    @LastModifiedDate
-    private LocalTime updatedAt;
-
-    @OneToOne
-    @JoinColumn(name = "replied_from_id", referencedColumnName = "id")
-    private Comment fromComment;
-
-    @OneToOne
-    @JoinColumn(name = "replied_to_id", referencedColumnName = "id")
-    private Comment toComment;
+    @Column(name = "created_by", nullable = false)
+    private LocalTime createdBy;
 }
