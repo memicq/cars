@@ -36,7 +36,9 @@
 // import InqueryForm from './InqueryForm.vue';
 export default {
   // components: { InqueryForm },
-  data: function() {}
+  data: function() {
+    return {};
+  }
 };
 </script>
 

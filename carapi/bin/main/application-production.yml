@@ -8,5 +8,14 @@ spring:
     database: MYSQL
     hibernate:
       ddl-auto: none
+  flyway:
+    enabled: true
+    url: ${DB_ENDPOINT}
+    user: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    baseline-on-migrate: false
+    baseline-version: 0.0.0
+    baseline-description: << Flyway Baseline >>
+    locations: classpath:db/migration
 server:
   port: 8080

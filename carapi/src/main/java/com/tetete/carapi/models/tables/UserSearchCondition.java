@@ -3,11 +3,9 @@ package com.tetete.carapi.models.tables;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -15,7 +13,9 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Table(name = "users_search_conditions")
 public class UserSearchCondition {
-    @Id @GeneratedValue @Column(name = "user_search_conditions_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "user_search_conditions_id", nullable = false)
     private Long userSearchConditionsId;
 
     @Column(name = "user_id", nullable = false)
@@ -25,8 +25,8 @@ public class UserSearchCondition {
     private Long searchConditionId;
 
     @Column(nullable = false)
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
     @Column(nullable = false)
-    private LocalTime updatedAt;
+    private LocalDateTime updatedAt;
 }

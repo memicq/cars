@@ -39,6 +39,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	implementation 'org.jsoup:jsoup:1.10.2'
+
 	// for lombok
 	// testAnnotationProcessor、testCompileOnly を併記しなくてよいよう configurations で設定している
 	annotationProcessor("org.projectlombok:lombok:${lombokVersion}")

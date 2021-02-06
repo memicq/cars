@@ -3,12 +3,9 @@ package com.tetete.carapi.models.tables;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalTime;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -16,7 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "collections")
 public class Collection {
-    @Id @GeneratedValue @Column(name = "collection_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "collection_id", nullable = false)
     private Long collectionId;
 
     @Column(name = "title", nullable = false, length = 255)
@@ -26,14 +25,14 @@ public class Collection {
     private String description;
 
     @Column(name = "created_at", nullable = false)
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "created_by", nullable = false)
-    private LocalTime createdBy;
+    private Long createdBy;
 
     @Column(name = "updated_at", nullable = false)
-    private LocalTime updatedAt;
+    private LocalDateTime updatedAt;
 
     @Column(name = "updated_by", nullable = false)
-    private LocalTime updatedBy;
+    private Long updatedBy;
 }

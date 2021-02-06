@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.util.Optional;
 
 @Data
 @NoArgsConstructor
@@ -13,5 +14,5 @@ import javax.validation.constraints.NotNull;
 @Builder
 public class AddTagRequest {
     @NotNull private String name;
-    @NotNull private Long parentTagId;
+    private Optional<Long> parentTagId;
 }

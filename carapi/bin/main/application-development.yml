@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://database/cars_db?autoReconnect=true&useSSL=false
+    url: jdbc:mysql://database/cars_db?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
     username: user
     password: password
   jpa:
@@ -10,7 +10,7 @@ spring:
       ddl-auto: none
   flyway:
     enabled: true
-    url: jdbc:mysql://database/cars_db?autoReconnect=true&useSSL=false
+    url: jdbc:mysql://database/cars_db?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
     user: user
     password: password
     baseline-on-migrate: true

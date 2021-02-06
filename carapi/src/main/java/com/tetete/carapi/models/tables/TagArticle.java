@@ -1,21 +1,23 @@
 package com.tetete.carapi.models.tables;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalTime;
+import java.sql.Timestamp;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "tags_articles")
 public class TagArticle {
-    @Id @GeneratedValue @Column(name = "tags_articles_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "tags_articles_id", nullable = false)
     private Long tagsArticlesId;
 
     @Column(name = "tag_id", nullable = false)
@@ -25,8 +27,8 @@ public class TagArticle {
     private Long articleId;
 
     @Column(name = "created_at", nullable = false)
-    private LocalTime createdAt;
+    private Timestamp createdAt;
 
     @Column(name = "updated_at", nullable = false)
-    private LocalTime updatedAt;
+    private Timestamp updatedAt;
 }

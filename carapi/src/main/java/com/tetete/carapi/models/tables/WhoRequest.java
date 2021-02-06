@@ -3,14 +3,9 @@ package com.tetete.carapi.models.tables;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalTime;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -18,15 +13,17 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "who_requests")
 public class WhoRequest {
-    @Id @GeneratedValue @Column(name = "who_request_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "who_request_id", nullable = false)
     private Long whoRequestId;
 
     @Column(name = "article_id", nullable = false)
     private Long articleId;
 
     @Column(name = "created_at", nullable = false)
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
 
-    @Column(name = "updated_at", nullable = false)
-    private LocalTime updatedAt;
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
 }

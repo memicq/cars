@@ -11,15 +11,14 @@
             />
           </v-col>
           <v-col cols="6" class="py-0 pb-0">
-            <h5>動画タイトル</h5>
-            <h6 class="gray-subtitle">
-              サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。サブタイトルです。
-            </h6>
+            <a :href="movie.sourceUrl" target="blank"
+              ><h5>{{ movie.title }}</h5></a
+            >
+            <h6 class="gray-subtitle">{{ movie.description }}</h6>
             <v-chip-group mandatory>
-              <v-chip small>タグ1</v-chip>
-              <v-chip small>タグ1</v-chip>
-              <v-chip small>タグ1</v-chip>
-              <v-chip small>タグ1</v-chip>
+              <v-chip small v-for="tag in movie.tagNames" :key="tag">
+                {{ tag }}
+              </v-chip>
             </v-chip-group>
           </v-col>
           <!-- <v-divider vertical></v-divider> -->
@@ -29,19 +28,19 @@
                 <tbody>
                   <tr>
                     <td>views</td>
-                    <td>100</td>
+                    <td>null</td>
                   </tr>
                   <tr>
                     <td>favs</td>
-                    <td>100</td>
+                    <td>null</td>
                   </tr>
                   <tr>
                     <td>lists</td>
-                    <td>100</td>
+                    <td>null</td>
                   </tr>
                   <tr>
                     <td>comm</td>
-                    <td>100</td>
+                    <td>null</td>
                   </tr>
                 </tbody>
               </template>
@@ -49,10 +48,16 @@
           </v-col>
           <!-- <v-divider vertical></v-divider> -->
           <v-col cols="1" class="pt-0 pb-0">
-            <v-btn class="ma-2" outlined small color="indigo">
+            <!-- <v-btn class="ma-2" outlined small color="indigo">
               <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-            <v-btn class="ma-2" outlined small color="indigo">
+            </v-btn> -->
+            <v-btn
+              class="ma-2"
+              outlined
+              small
+              color="red lighten-2"
+              @click="deleteMovie"
+            >
               <v-icon>mdi-delete</v-icon>
             </v-btn>
           </v-col>
@@ -63,7 +68,19 @@
 </template>
 
 <script>
-export default {};
+import Axios from "axios";
+export default {
+  props: ["movie"],
+  methods: {
+    deleteMovie: function() {
+      let endpoint = "/api/admin/movies/" + this.movie.articleId;
+      console.log(endpoint);
+      Axios.delete(endpoint).then(() => {
+        this.$emit('reset');
+      });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

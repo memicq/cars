@@ -3,13 +3,9 @@ package com.tetete.carapi.models.tables;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalTime;
-import java.util.Date;
-import java.util.List;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -17,20 +13,22 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "search_conditions")
 public class SearchCondition {
-    @Id @GeneratedValue @Column(name = "search_condition_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "search_condition_id", nullable = false)
     private Long searchConditionId;
 
     @Column(name = "description", nullable = true, length = 255)
     private String description;
 
     @Column(name = "created_at", nullable = false)
-    private LocalTime createdAt;
+    private Timestamp createdAt;
 
     @Column(name = "created_by", nullable = false)
     private Long createdBy;
 
     @Column(name = "updated_at", nullable = false)
-    private LocalTime updatedAt;
+    private Timestamp updatedAt;
 
     @Column(name = "updated_by", nullable = false)
     private Long updatedBy;

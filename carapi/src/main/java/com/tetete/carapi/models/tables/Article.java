@@ -2,23 +2,23 @@ package com.tetete.carapi.models.tables;
 
 import com.tetete.carapi.models.enums.SourceMovieSite;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalTime;
-import java.util.List;
+import java.sql.Timestamp;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "articles")
 public class Article {
-    @Id @GeneratedValue @Column(name = "article_id", nullable = false)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "article_id", nullable = false)
     private Long articleId;
 
     @Column(name = "title", nullable = false, length = 511)
@@ -44,16 +44,16 @@ public class Article {
     private Long viewCount = 0L;
 
     @Column(name = "is_archived", nullable = false)
-    private boolean isArchived = false;
+    private Boolean isArchived = false;
 
     @Column(name = "created_at", nullable = false)
-    private LocalTime createdAt;
+    private Timestamp createdAt;
 
     @Column(name = "created_by", nullable = false)
     private Long createdBy;
 
     @Column(name = "updated_at", nullable = false)
-    private LocalTime updatedAt;
+    private Timestamp updatedAt;
 
     @Column(name = "updated_by", nullable = false)
     private Long updatedBy;
